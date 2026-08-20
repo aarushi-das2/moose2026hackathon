@@ -82,6 +82,30 @@ Conductance-based inhibition was used instead of an unbounded additive voltage i
 
 # 4. Methodology
 
+Constant tonic drive
+        ↓
+Excitatory population A dominates
+        ↓
+A activates A_I
+        ↓
+A_I inhibits B_E
+        ↓
+Adaptation accumulates in A_E
+        ↓
+A loses excitability
+        ↓
+B recovers and becomes dominant
+        ↓
+B activates B_I
+        ↓
+B_I inhibits A_E
+        ↓
+Adaptation accumulates in B_E
+        ↓
+A recovers
+        ↓
+      REPEAT
+
 Step 1 — Initialize the environment (The required Python libraries and MOOSE are imported.)
 Step 2 — Define neuron models (The excitatory AdExIF and inhibitory LIF populations are created with fixed parameters.)
 Step 3 — Define the network 
@@ -130,7 +154,7 @@ The following quantities are calculated:
 - whether sustained oscillation criteria are satisfied.
 
 Step 9 — Phase-specific suppression analysis (The final model also evaluates suppression specifically during the phase in which the opposing population is dominant. This directly evaluates reciprocal suppression.)
-Step 10 — Mechanistic ablation (The adaptation parameter is removed: b0 = 0 while keeping the rest of the model unchanged.The purpose is to determine whether adaptation is required for sustained alternation.)
+Step 10 — Mechanistic ablation (The adaptation parameter is removed: b0 = 0 while keeping the rest of the model unchanged. The purpose is to determine whether adaptation is required for sustained alternation.)
 Step 11 — Robustness validation 
 Evaluates the model under additional conditions, including:
 - independent random seeds
@@ -139,7 +163,7 @@ Evaluates the model under additional conditions, including:
 
 The validation results are reported.
 
-# 5 .Result
+# 5 .Results
 The simulation produces sustained anti-phase activity.
 
 Total neurons:                  50
