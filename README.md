@@ -246,6 +246,10 @@ The core simulation is implemented using the MOOSE Python API.
 The repository contains the notebook: 
 Neuromorphic_Oscillator.ipynb
 README.md
+requirements.txt
+figures/
+  ├── adaptation_ablation.png
+  ├── oscillation_figures.png
 
 # 10. How to Run
 Google Colab: 
