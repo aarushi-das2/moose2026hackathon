@@ -169,13 +169,13 @@ The simulation produces sustained anti-phase activity.
 Total neurons:                  50
 Connectivity:                   75%
 Tonic current:                  3.000e-09 A
-A_E mean firing rate:           9.19 Hz
-B_E mean firing rate:           9.98 Hz
-Alternations:                   34
-Complete cycles:                17
-Correlation:                    -0.694
+A_E mean firing rate:           9.15 Hz
+B_E mean firing rate:           10.09 Hz
+Alternations:                   32
+Complete cycles:                16
+Correlation:                    -0.802
 Estimated period:               600 ms
-Period CV:                      0.259
+Period CV:                      0.245
 Oscillation:                    True
 
 The two populations have similar mean firing rates.
