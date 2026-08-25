@@ -1,5 +1,7 @@
 # Adaptive Reciprocal-Inhibition Neuromorphic Oscillator
 
+A compact 50-neuron reciprocal-inhibition half-center oscillator that generates sustained anti-phase activity from constant tonic input. Spike-frequency adaptation provides the slow release mechanism that enables repeated switching between the two competing pools.
+
 ## 1. Problem Statement
 
 The objective of this project is to develop a compact neuromorphic oscillator that produces sustained, alternating activity between two competing neuronal populations using a fixed network architecture and **constant tonic input**, without an externally imposed oscillatory stimulus.
