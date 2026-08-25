@@ -269,17 +269,19 @@ The core simulation is implemented using the MOOSE Python API.
 
 # 9. File Structure
 
-The repository contains the notebook: 
-
+```text
 Neuromorphic_Oscillator.ipynb
 README.md
 requirements.txt
 figures/
-  ├── adaptation_ablation.png
-  ├── oscillation_figures.png
+├── adaptation_ablation.png
+└── oscillation_figures.png
+```
 
 # 10. How to Run
+
 Google Colab: 
+
 1. Upload the notebook to Google Colab.
 2. Install MOOSE and the required Python packages in the runtime if they are not already available.
 3. Run All
@@ -289,6 +291,7 @@ Google Colab:
 A population activity result showing sustained alternating activity between A and B.
 
 Confirmation that:
+
 - the neuron budget is satisfied
 - the fixed connectome is valid
 - Dale's Law is respected
@@ -296,6 +299,7 @@ Confirmation that:
 - no prohibited external oscillator is present
 
 Reported results:
+
 - A_E firing rate
 - B_E firing rate
 - alternations
@@ -307,6 +311,7 @@ Reported results:
 - phase-specific suppression
   
 ## Figures
+
 The notebook generates visualizations of the network activity and oscillatory behavior, including population dynamics and mechanistic comparison.
 
 ### Figure 1: population rate, Figure 2: representative membrane voltages, Figure 3: cross-correlation, Figure 4: raster from excitatory population spike times
@@ -316,24 +321,27 @@ The notebook generates visualizations of the network activity and oscillatory be
 <img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/1fbe1f21-dffc-4b62-8a06-4f04d74d660d" />
 
 Ablation
+
 A comparison showing:
+
 - Adaptation ON  → sustained oscillation
 - Adaptation OFF → winner-take-all / oscillation lost
   
 Robustness: A summary of the independent-seed and perturbation experiments.
 
 # 12. Constraint Compliance
+
 The final model satisfies the key architectural constraints:
 
-Neuron count:             50 / 100 maximum
-External oscillatory input: None
-Tonic input:              Constant
-Connectome:               Fixed
-Excitatory populations:   A_E, B_E
-Inhibitory populations:   A_I, B_I
-Dale's Law:               Enforced and checked
-Reciprocal inhibition:    Conductance-based
-Simulation platform:     MOOSE
+- Neuron count:             50 / 100 maximum
+- External oscillatory input: None
+- Tonic input:              Constant
+- Connectome:               Fixed
+- Excitatory populations:   A_E, B_E
+- Inhibitory populations:   A_I, B_I
+- Dale's Law:               Enforced and checked
+- Reciprocal inhibition:    Conductance-based
+- Simulation platform:     MOOSE
 
 
 This project demonstrates that a compact, Dale-compliant network of only 50 neurons can generate sustained anti-phase oscillations from constant tonic drive without an externally imposed rhythm. The mechanism is adaptation-mediated reciprocal inhibition: reciprocal inhibition creates competition between the two populations, while intrinsic adaptation prevents permanent winner-take-all behavior by progressively reducing the excitability of the currently dominant population.
