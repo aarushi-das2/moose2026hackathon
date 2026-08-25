@@ -84,29 +84,20 @@ Conductance-based inhibition was used instead of an unbounded additive voltage i
 
 # 4. Methodology
 
-Constant tonic drive
-        ↓
-Excitatory population A dominates
-        ↓
-A activates A_I
-        ↓
-A_I inhibits B_E
-        ↓
-Adaptation accumulates in A_E
-        ↓
-A loses excitability
-        ↓
-B recovers and becomes dominant
-        ↓
-B activates B_I
-        ↓
-B_I inhibits A_E
-        ↓
-Adaptation accumulates in B_E
-        ↓
-A recovers
-        ↓
-      REPEAT
+```mermaid
+flowchart TD
+    A[Constant tonic drive] --> B[Excitatory population A dominates]
+    B --> C[A activates A_I]
+    C --> D[A_I inhibits B_E]
+    D --> E[Adaptation accumulates in A_E]
+    E --> F[A loses excitability]
+    F --> G[B recovers and becomes dominant]
+    G --> H[B activates B_I]
+    H --> I[B_I inhibits A_E]
+    I --> J[Adaptation accumulates in B_E]
+    J --> K[A recovers]
+    K --> B
+```
 
 Step 1 — Initialize the environment (The required Python libraries and MOOSE are imported.)
 Step 2 — Define neuron models (The excitatory AdExIF and inhibitory LIF populations are created with fixed parameters.)
