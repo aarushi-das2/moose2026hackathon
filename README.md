@@ -314,9 +314,17 @@ Reported results:
 
 The notebook generates visualizations of the network activity and oscillatory behavior, including population dynamics and mechanistic comparison.
 
-### Figure 1: population rate, Figure 2: representative membrane voltages, Figure 3: cross-correlation, Figure 4: raster from excitatory population spike times
+### Figure 1: Population Firing Rates 
 <img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/2de514e2-d985-450c-baf8-a39022d910a3" />
+
+### Figure 2: Representative excitory-neuron membrane voltage
 <img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/4255754d-0fa0-4e02-bba8-953daf061592" />
+
+### Figure 3: Pool A / Pool B rate cross-correlation
+<img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/ee162472-7fcb-4108-a8c0-d6a773a264cc" />
+
+### Figure 4: Excitatory population raster
+<img width="990" height="440" alt="image" src="https://github.com/user-attachments/assets/4a807f91-34d4-41c3-afed-840deb7772d5" />
 
 ### Adaptation ablation
 <img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/1fbe1f21-dffc-4b62-8a06-4f04d74d660d" />
