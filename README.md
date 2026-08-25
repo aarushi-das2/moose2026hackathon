@@ -316,6 +316,7 @@ The notebook generates visualizations of the network activity and oscillatory be
 
 ### Figure 1: population rate, Figure 2: representative membrane voltages, Figure 3: cross-correlation, Figure 4: raster from excitatory population spike times
 <img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/2de514e2-d985-450c-baf8-a39022d910a3" />
+<img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/4255754d-0fa0-4e02-bba8-953daf061592" />
 
 ### Adaptation ablation
 <img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/1fbe1f21-dffc-4b62-8a06-4f04d74d660d" />
