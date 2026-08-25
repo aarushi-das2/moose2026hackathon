@@ -326,10 +326,11 @@ The notebook generates visualizations of the network activity and oscillatory be
 ### Figure 4: Excitatory population raster
 <img width="990" height="440" alt="image" src="https://github.com/user-attachments/assets/4a807f91-34d4-41c3-afed-840deb7772d5" />
 
-### Adaptation ablation
+### Figure 5: Adaptation ablation
 <img width="989" height="440" alt="image" src="https://github.com/user-attachments/assets/1fbe1f21-dffc-4b62-8a06-4f04d74d660d" />
 
-Ablation
+
+#### Ablation
 
 A comparison showing:
 
