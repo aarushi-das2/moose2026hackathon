@@ -113,6 +113,7 @@ B_I = 5 neurons
 Total: 50 neurons
 
 Step 4 — Construct the connectome (The four allowed pathways are connected using fixed sparse connectivity. No runtime rewiring is performed.)
+
 Step 5 — Verify structural constraints
 Checks:
 - neuron count
@@ -135,6 +136,7 @@ Seed    = 1
 The model is driven only by constant tonic excitation.
 
 Step 7 — Extract population activity (Spike times from the excitatory populations are collected and converted into population firing-rate traces.)
+
 Step 8 — Quantify oscillation
 The following quantities are calculated:
 - number of alternations
@@ -149,7 +151,9 @@ The following quantities are calculated:
 - whether sustained oscillation criteria are satisfied.
 
 Step 9 — Phase-specific suppression analysis (The final model also evaluates suppression specifically during the phase in which the opposing population is dominant. This directly evaluates reciprocal suppression.)
+
 Step 10 — Mechanistic ablation (The adaptation parameter is removed: b0 = 0 while keeping the rest of the model unchanged. The purpose is to determine whether adaptation is required for sustained alternation.)
+
 Step 11 — Robustness validation 
 Evaluates the model under additional conditions, including:
 - independent random seeds
