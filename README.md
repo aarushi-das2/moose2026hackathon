@@ -51,34 +51,35 @@ The network uses 75% fixed sparse connectivity.
 # 3. Neuronal and Synaptic Models
 
 Excitatory population: The excitatory neurons use MOOSE AdExIF neurons.
+
 The final excitatory parameters include:
-Em       = -0.065 V
-threshold = -0.045 V
-vReset   = -0.060 V
-Rm       = 1e8 ohm
-Cm       = 1e-9 F
-inject   = 3e-9 A
-b0       = 4e-10 A
-tauW     = 0.6 s
+- Em       = -0.065 V
+- threshold = -0.045 V
+- vReset   = -0.060 V
+- Rm       = 1e8 ohm
+- Cm       = 1e-9 F
+- inject   = 3e-9 A
+- b0       = 4e-10 A
+- tauW     = 0.6 s
 
 Inhibitory population: The inhibitory neurons use MOOSE LIF neurons. They do not receive an independent tonic current. Their activity is driven through the excitatory-to-inhibitory synapses.
 
 Excitatory synapses: The local excitatory pathways -
-A_E -> A_I
-B_E -> B_I
+- A_E -> A_I
+- B_E -> B_I
 use MOOSE SimpleSynHandler delta synapses.
 The excitatory synaptic weight is: 0.002 V
 
 Inhibitory synapses: The reciprocal inhibitory pathways:
-A_I -> B_E
-B_I -> A_E
+- A_I -> B_E
+- B_I -> A_E
 use conductance-based MOOSE SynChan synapses.
 
 Parameters:
-Gbar = 3e-6 S
-Ek   = -0.08 V
-tau1 = 0.005 s
-tau2 = 0.001 s
+- Gbar = 3e-6 S
+- Ek   = -0.08 V
+- tau1 = 0.005 s
+- tau2 = 0.001 s
 
 Conductance-based inhibition was used instead of an unbounded additive voltage inhibition so that repeated inhibitory input remains physically bounded by the inhibitory reversal potential.
 
@@ -105,10 +106,10 @@ Step 2 — Define neuron models (The excitatory AdExIF and inhibitory LIF popula
 
 Step 3 — Define the network 
 Four populations are created:
-A_E = 20 neurons
-A_I = 5 neurons
-B_E = 20 neurons
-B_I = 5 neurons
+- A_E = 20 neurons
+- A_I = 5 neurons
+- B_E = 20 neurons
+- B_I = 5 neurons
 
 Total: 50 neurons
 
