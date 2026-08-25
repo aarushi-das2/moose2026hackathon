@@ -100,7 +100,9 @@ flowchart TD
 ```
 
 Step 1 — Initialize the environment (The required Python libraries and MOOSE are imported.)
+
 Step 2 — Define neuron models (The excitatory AdExIF and inhibitory LIF populations are created with fixed parameters.)
+
 Step 3 — Define the network 
 Four populations are created:
 A_E = 20 neurons
