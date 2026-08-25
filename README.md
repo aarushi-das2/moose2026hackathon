@@ -41,10 +41,11 @@ The oscillator consists of two competing excitatory populations, A and B, each c
                     reciprocal inhibition
                     
 The four fixed pathways are:
-A_E -> A_I     excitatory
-B_E -> B_I     excitatory
-A_I -> B_E     inhibitory
-B_I -> A_E     inhibitory
+
+- A_E -> A_I     excitatory
+- B_E -> B_I     excitatory
+- A_I -> B_E     inhibitory
+- B_I -> A_E     inhibitory
 
 The network uses 75% fixed sparse connectivity.
 
@@ -65,17 +66,22 @@ The final excitatory parameters include:
 Inhibitory population: The inhibitory neurons use MOOSE LIF neurons. They do not receive an independent tonic current. Their activity is driven through the excitatory-to-inhibitory synapses.
 
 Excitatory synapses: The local excitatory pathways -
+
 - A_E -> A_I
 - B_E -> B_I
+  
 use MOOSE SimpleSynHandler delta synapses.
 The excitatory synaptic weight is: 0.002 V
 
-Inhibitory synapses: The reciprocal inhibitory pathways:
+Inhibitory synapses: The reciprocal inhibitory pathways - 
+
 - A_I -> B_E
 - B_I -> A_E
+  
 use conductance-based MOOSE SynChan synapses.
 
 Parameters:
+
 - Gbar = 3e-6 S
 - Ek   = -0.08 V
 - tau1 = 0.005 s
@@ -105,7 +111,9 @@ Step 1 — Initialize the environment (The required Python libraries and MOOSE a
 Step 2 — Define neuron models (The excitatory AdExIF and inhibitory LIF populations are created with fixed parameters.)
 
 Step 3 — Define the network 
+
 Four populations are created:
+
 - A_E = 20 neurons
 - A_I = 5 neurons
 - B_E = 20 neurons
@@ -116,7 +124,9 @@ Total: 50 neurons
 Step 4 — Construct the connectome (The four allowed pathways are connected using fixed sparse connectivity. No runtime rewiring is performed.)
 
 Step 5 — Verify structural constraints
+
 Checks:
+
 - neuron count
 - required pathways
 - excitatory/inhibitory synaptic signs
@@ -131,15 +141,19 @@ Checks that objects such as StimulusTable, PulseGen, RandSpike, and TimeTable ar
 Step 6 — Run the simulation
 
 The simulation uses:
-Runtime = 10 s
-dt      = 5e-5 s
-Seed    = 1
+
+- Runtime = 10 s
+- dt      = 5e-5 s
+- Seed    = 1
+  
 The model is driven only by constant tonic excitation.
 
 Step 7 — Extract population activity (Spike times from the excitatory populations are collected and converted into population firing-rate traces.)
 
 Step 8 — Quantify oscillation
+
 The following quantities are calculated:
+
 - number of alternations
 - number of complete cycles
 - mean firing rate of each population
@@ -156,7 +170,9 @@ Step 9 — Phase-specific suppression analysis (The final model also evaluates s
 Step 10 — Mechanistic ablation (The adaptation parameter is removed: b0 = 0 while keeping the rest of the model unchanged. The purpose is to determine whether adaptation is required for sustained alternation.)
 
 Step 11 — Robustness validation 
+
 Evaluates the model under additional conditions, including:
+
 - independent random seeds
 - inhibitory synaptic heterogeneity
 - initial-condition perturbation
@@ -164,74 +180,84 @@ Evaluates the model under additional conditions, including:
 The validation results are reported.
 
 # 5 .Results
+
 The simulation produces sustained anti-phase activity.
 
-Total neurons:                  50
-Connectivity:                   75%
-Tonic current:                  3.000e-09 A
-A_E mean firing rate:           9.15 Hz
-B_E mean firing rate:           10.09 Hz
-Alternations:                   32
-Complete cycles:                16
-Correlation:                    -0.802
-Estimated period:               600 ms
-Period CV:                      0.245
-Oscillation:                    True
+- Total neurons:                  50
+- Connectivity:                   75%
+- Tonic current:                  3.000e-09 A
+- A_E mean firing rate:           9.15 Hz
+- B_E mean firing rate:           10.09 Hz
+- Alternations:                   32
+- Complete cycles:                16
+- Correlation:                    -0.802
+- Estimated period:               600 ms
+- Period CV:                      0.245
+- Oscillation:                    True
 
 The two populations have similar mean firing rates.
 
 ## Phase-specific reciprocal inhibition
+
 The model shows approximately:
+
 - B suppression during A-dominant phases: 93.2%
 - A suppression during B-dominant phases: 95.5%
 
 These values represent phase-specific suppression of the opposing population and should not be interpreted as literal 100% silencing.
 
 # 6. Mechanistic Ablation
+
 Adaptation is tested by repeating the simulation with:
 
 b0 = 0
 
 Adaptation ON
-A_E mean rate:     ~9.19 Hz
-B_E mean rate:     ~9.98 Hz
-Alternations:      34
-Complete cycles:   17
-Oscillation:       True
+
+- A_E mean rate:     ~9.19 Hz
+- B_E mean rate:     ~9.98 Hz
+- Alternations:      34
+- Complete cycles:   17
+- Oscillation:       True
 
 Adaptation OFF
-A_E mean rate:     ~90.7 Hz
-B_E mean rate:     ~0.15 Hz
-Alternations:      0
-Complete cycles:   0
-Oscillation:       False
+
+- A_E mean rate:     ~90.7 Hz
+- B_E mean rate:     ~0.15 Hz
+- Alternations:      0
+- Complete cycles:   0
+- Oscillation:       False
 
 Without adaptation, reciprocal inhibition produces a winner-take-all state. With adaptation, the dominant population loses excitability over time, allowing the suppressed population to recover and produce repeated dominance reversals.
 
 This supports intrinsic adaptation as the slow release mechanism responsible for sustained oscillation.
 
 # 7. Robustness Results
+
 Five independent seeds are evaluated: 1, 7, 42, 99, 123
 
 The observed results are:
-Pass fraction:       4/5 = 80%
-Mean alternations:   37.2 ± 3.8
-Mean correlation:    -0.744 ± 0.028
+
+- Pass fraction:       4/5 = 80%
+- Mean alternations:   37.2 ± 3.8
+- Mean correlation:    -0.744 ± 0.028
 
 One seed produces a marginal period-regularity failure under the strict period CV < 0.3 criterion.
 
 Inhibitory heterogeneity: A 5% coefficient of variation in inhibitory Gbar is tested.
-Result:
-PASS
+
+Result: PASS
 
 Initial-condition robustness: A 5% initial membrane-potential perturbation is tested.
-Result:
-PASS
+
+Result: PASS
 
 These experiments indicate that the oscillation is not dependent on one exact random initialization or perfectly identical inhibitory synapses.
 
 # 8. Dependencies
+
 The notebook requires:
+
 - Python
 - MOOSE
 - NumPy
@@ -244,6 +270,7 @@ The core simulation is implemented using the MOOSE Python API.
 # 9. File Structure
 
 The repository contains the notebook: 
+
 Neuromorphic_Oscillator.ipynb
 README.md
 requirements.txt
